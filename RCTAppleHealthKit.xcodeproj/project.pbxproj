@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F842CF522FDF58700C4D62A /* RCTAppleHealthKit+Methods_Dietary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F842CF322FDF58600C4D62A /* RCTAppleHealthKit+Methods_Dietary.m */; };
 		3774C8911D2092F20000B3F3 /* RCTAppleHealthKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3774C8901D2092F20000B3F3 /* RCTAppleHealthKit.h */; };
 		3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C8921D2092F20000B3F3 /* RCTAppleHealthKit.m */; };
 		3774C89B1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m in Sources */ = {isa = PBXBuildFile; fileRef = 3774C89A1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m */; };
@@ -36,6 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F842CF322FDF58600C4D62A /* RCTAppleHealthKit+Methods_Dietary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Dietary.m"; sourceTree = "<group>"; };
+		2F842CF422FDF58700C4D62A /* RCTAppleHealthKit+Methods_Dietary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Dietary.h"; sourceTree = "<group>"; };
+		2F842CF922FF0EAD00C4D62A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3774C88D1D2092F20000B3F3 /* libRCTAppleHealthKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAppleHealthKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3774C8901D2092F20000B3F3 /* RCTAppleHealthKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAppleHealthKit.h; sourceTree = "<group>"; };
 		3774C8921D2092F20000B3F3 /* RCTAppleHealthKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAppleHealthKit.m; sourceTree = "<group>"; };
@@ -74,11 +78,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F842CF822FF0EAD00C4D62A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F842CF922FF0EAD00C4D62A /* libReact.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3774C8841D2092F20000B3F3 = {
 			isa = PBXGroup;
 			children = (
 				3774C88F1D2092F20000B3F3 /* RCTAppleHealthKit */,
 				3774C88E1D2092F20000B3F3 /* Products */,
+				2F842CF822FF0EAD00C4D62A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +106,8 @@
 		3774C88F1D2092F20000B3F3 /* RCTAppleHealthKit */ = {
 			isa = PBXGroup;
 			children = (
+				2F842CF422FDF58700C4D62A /* RCTAppleHealthKit+Methods_Dietary.h */,
+				2F842CF322FDF58600C4D62A /* RCTAppleHealthKit+Methods_Dietary.m */,
 				58C81E6E1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.h */,
 				58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */,
 				61232F911E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.h */,
@@ -160,6 +175,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 3774C8841D2092F20000B3F3;
@@ -182,6 +198,7 @@
 				37837E7D1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m in Sources */,
 				3774C8D41D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m in Sources */,
 				61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */,
+				2F842CF522FDF58700C4D62A /* RCTAppleHealthKit+Methods_Dietary.m in Sources */,
 				64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */,
 				64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */,
 				3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */,
@@ -281,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SRCROOT)/../../react-native/React/**",
 					"$(SRCROOT)/../../../React/**",
 				);
@@ -294,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SRCROOT)/../../react-native/React/**",
 					"$(SRCROOT)/../../../React/**",
 				);

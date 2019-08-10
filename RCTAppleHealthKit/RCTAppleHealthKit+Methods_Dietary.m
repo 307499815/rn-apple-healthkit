@@ -390,7 +390,7 @@
     double waterValue = [RCTAppleHealthKit doubleFromOptions:input key:@"water" withDefault:(double)0];
 
     HKQuantitySample* water = [HKQuantitySample quantitySampleWithType:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryWater]
-                                                                quantity:[HKQuantity quantityWithUnit:[HKUnit literUnit] doubleValue:waterValue]
+                                                              quantity:[HKQuantity quantityWithUnit:[HKUnit literUnitWithMetricPrefix:HKMetricPrefixMilli] doubleValue:waterValue]
                                                                 startDate:timeWaterWasConsumed
                                                                 endDate:timeWaterWasConsumed
                                                                 metadata:nil];
@@ -404,6 +404,38 @@
         }
         callback(@[[NSNull null], @true]);
     }];
+}
+
+- (void)getWater:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSDate *date = [RCTAppleHealthKit dateFromOptions:input key:@"date" withDefault:[NSDate date]];
+    
+    if(date == nil) {
+        callback(@[RCTMakeError(@"could not parse date from options.date", nil, nil)]);
+        return;
+    }
+    
+    HKQuantityType *waterType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryWater];
+    HKUnit *waterUnit = [HKUnit literUnitWithMetricPrefix:HKMetricPrefixMilli];
+    
+    [self fetchSumOfSamplesOnDayForType:waterType
+                                   unit:waterUnit
+                                    day:date
+                             completion:^(double value, NSDate *startDate, NSDate *endDate, NSError *error) {
+                                 if (!value) {
+                                     NSLog(@"could not fetch water for day: %@", error);
+                                     callback(@[RCTMakeError(@"could not fetch water for day", error, nil)]);
+                                     return;
+                                 }
+                                 
+                                 NSDictionary *response = @{
+                                                            @"value" : @(value),
+                                                            @"startDate" : [RCTAppleHealthKit buildISO8601StringFromDate:startDate],
+                                                            @"endDate" : [RCTAppleHealthKit buildISO8601StringFromDate:endDate],
+                                                            };
+                                 
+                                 callback(@[[NSNull null], response]);
+                             }];
 }
 
 @end
